@@ -9,5 +9,5 @@ Features
   * Ability to start and stop longpoll at arbitrary moment
   * Ability to perform your callbacks before each $.ajax call and on each success
   * Ability to modify longpoll url on each success callback
-  * <s>Ability to get all your money back</s> Nevermind that
+  * Ability to get all your money back^U Nevermind that
   
