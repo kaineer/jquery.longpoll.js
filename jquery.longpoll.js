@@ -42,7 +42,7 @@
     var fn = function() {
       var options = poll.options;
 
-      if(pollId === poll.pollId && !poll.canceled) {
+      if(poll.isRunningWith(pollId)) {
 	//
 	options.beforePoll(poll);
 
@@ -51,7 +51,7 @@
 	  _.extend({}, options, {
 	    url: poll.url,
 	    success: function(data) {
-	      if(pollId === poll.pollId && !poll.canceled) {
+	      if(poll.isRunningWith(pollId)) {
 		return options.success(data, poll);
 	      }
 	    },
@@ -74,6 +74,10 @@
 
     stop: function() {
       this.canceled = true;
+    },
+    
+    isRunningWith: function(pollId) {
+      return !this.cancelled && this.pollId === pollId;
     }
   });
 
