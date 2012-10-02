@@ -21,7 +21,7 @@
     
     // More poll-specific data
     this.url = this.options.url;
-    this.cancelled = false;
+    this.canceled = false;
     this.pollId = null;
   };
 
@@ -42,7 +42,7 @@
     var fn = function() {
       var options = poll.options;
 
-      if(pollId === poll.pollId && !poll.cancelled) {
+      if(pollId === poll.pollId && !poll.canceled) {
 	//
 	options.beforePoll(poll);
 
@@ -51,7 +51,7 @@
 	  _.extend({}, options, {
 	    url: poll.url,
 	    success: function(data) {
-	      if(pollId === poll.pollId && !poll.cancelled) {
+	      if(pollId === poll.pollId && !poll.canceled) {
 		return options.success(data, poll);
 	      }
 	    },
@@ -68,12 +68,12 @@
   _.extend(Longpoll.prototype, {
     start: function() {
       this.pollId = new Date();
-      this.cancelled = false;
+      this.canceled = false;
       (makePollFunction(this.pollId, this))();
     },
 
     stop: function() {
-      this.cancelled = true;
+      this.canceled = true;
     }
   });
 
