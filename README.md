@@ -11,3 +11,7 @@ Features
   * Ability to modify longpoll url on each success callback
   * Ability to get all your money back^U Nevermind that
   
+Usage
+-----
+
+First, you need to create your longpoll object
