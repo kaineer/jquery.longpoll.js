@@ -1,7 +1,7 @@
 jquery.longpoll.js
 ==================
 
-jQuery plugin for longpoll
+jQuery plugin for the longpoll
 
 Features
 --------
