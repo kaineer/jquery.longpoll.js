@@ -26,7 +26,12 @@ $(function() {
 
   var poll = $.longpoll({
     url: "http://localhost:8000/poll",
-    success: successFn
+    success: successFn,
+    failure: function() {
+      $("#message").text("Lost connection");
+      $("li.ungo, li.start, li.stop").hide();
+      $("li.go").show();
+    }
   });
 
   var jx = function(path) {
