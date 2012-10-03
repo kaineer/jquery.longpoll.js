@@ -29,7 +29,7 @@
   Longpoll.defaults = {
     timeout: 30000,                     // 30 seconds
     url: "/longpoll",                   // url to poll
-    dataType: "text/plain",             // dataType to fetch
+    dataType: "json",                   // dataType to fetch
     crossDomain: false,
     beforePoll: dummyFn,                // function to call before $.ajax
     success: dummyFn                    // function to call on $.ajax.success
