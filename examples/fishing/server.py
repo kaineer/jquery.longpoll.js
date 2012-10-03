@@ -70,7 +70,6 @@ class FishingServer(WSGIApplication):
         self.rod_state = "dry"
         
         self.router.add_routes([
-                ("/poll/(\w+)/(\w+)/?", self.poll_state),
                 ("/poll/(\w+)/?",       self.poll_state),
                 ("/poll/?",             self.poll_state),
                 ("/wet_rod",            self.wet_rod),

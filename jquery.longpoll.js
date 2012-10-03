@@ -66,7 +66,10 @@
 
   //
   _.extend(Longpoll.prototype, {
-    start: function() {
+    start: function(doReset) {
+      if(doReset) {
+	this.url = this.options.url;
+      }
       this.pollId = new Date();
       this.canceled = false;
       (makePollFunction(this.pollId, this))();

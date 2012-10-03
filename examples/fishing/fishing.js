@@ -37,8 +37,8 @@ $(function() {
   };
 
   $("a.go").click(function() {
-    poll.start();
-    
+    poll.start(true);
+
     $("li.ungo, li.start").show();
     $("li.go").hide();
   });
