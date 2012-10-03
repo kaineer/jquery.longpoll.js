@@ -32,7 +32,8 @@
     dataType: "json",                   // dataType to fetch
     crossDomain: false,
     beforePoll: dummyFn,                // function to call before $.ajax
-    success: dummyFn                    // function to call on $.ajax.success
+    success: dummyFn,                   // function to call on $.ajax.success
+    failure: dummyFn
     // To be continued
   };
 
@@ -57,7 +58,10 @@
 	    },
 	    complete: fn
 	  })
-	);
+	).fail(function() { 
+	  poll.stop();
+	  options.failure();
+	});
       }
     };
 
@@ -80,7 +84,7 @@
     },
     
     isRunningWith: function(pollId) {
-      return !this.cancelled && this.pollId === pollId;
+      return !this.canceled && this.pollId === pollId;
     }
   });
 
